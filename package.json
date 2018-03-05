@@ -1,0 +1,25 @@
+{
+  "name": "project-lvl1-s232",
+  "version": "0.0.1",
+  "description": "Hexlet brain games project",
+  "main": "src/bin/brain-games.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Arkadiy Stepanov",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
