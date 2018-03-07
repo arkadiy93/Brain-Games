@@ -1,7 +1,10 @@
-import readlineSync from 'readline-sync';
+import * as functions from './functions';
 
-export default () => {
-  const userName = readlineSync.question('\nMay I have your name? ');
-  console.log(`Hello, ${userName}! \n`);
-  return userName;
+export default (whichGame) => {
+  functions.greetUser();
+  whichGame.gameQuestion();
+  const userName = functions.getUsername();
+  if (whichGame.getAnswers(userName)) {
+    console.log(`Congratulations, ${userName}!`);
+  }
 };

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import guessGame from '../guess-game';
+import startGame from '../index';
+import * as evenGame from '../games/even-game';
 
-guessGame();
+startGame(evenGame);
