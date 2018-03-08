@@ -7,8 +7,7 @@ const gameData = {
   getRoundQuestion: () => {
     const question = core.getRandomInt(1, 100);
     const answer = question % 2 === 0 ? 'yes' : 'no';
-    const pair = cons(question, answer);
-    return pair;
+    return cons(question, answer);
   },
 };
 

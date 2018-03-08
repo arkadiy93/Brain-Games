@@ -12,20 +12,17 @@ const gameData = {
       case 0: {
         const question = `${ranInt1} + ${ranInt2}`;
         const answer = String(ranInt1 + ranInt2);
-        const pair = cons(question, answer);
-        return (pair);
+        return cons(question, answer);
       }
       case 1: {
         const question = `${ranInt1} - ${ranInt2}`;
         const answer = String(ranInt1 - ranInt2);
-        const pair = cons(question, answer);
-        return (pair);
+        return cons(question, answer);
       }
       default: {
         const question = `${ranInt1} * ${ranInt2}`;
         const answer = String(ranInt1 * ranInt2);
-        const pair = cons(question, answer);
-        return (pair);
+        return cons(question, answer);
       }
     }
   },
