@@ -1,19 +1,36 @@
-import readlineSync from 'readline-sync';
-import * as functions from '../functions';
+import { cons } from 'hexlet-pairs';
+import * as core from '../index';
 
-export const gameQuestion = () => console.log('What is the result of the expression?');
+const gameData = {
+  introQuestion: () => console.log('What is the result of the expression?'),
 
-
-export const getAnswers = (userName) => {
-  for (let i = 0; i < 3; i += 1) {
-    const correctAnswer = functions.setQuestion();
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (Number(userAnswer) === correctAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\n Let's try again, ${userName}!`);
-      return false;
+  getRoundQuestion: () => {
+    const ranOperator = core.getRandomInt(0, 3);
+    const ranInt1 = core.getRandomInt(1, 10);
+    const ranInt2 = core.getRandomInt(1, 10);
+    switch (ranOperator) {
+      case 0: {
+        const question = `${ranInt1} + ${ranInt2}`;
+        const answer = String(ranInt1 + ranInt2);
+        const pair = cons(question, answer);
+        return (pair);
+      }
+      case 1: {
+        const question = `${ranInt1} - ${ranInt2}`;
+        const answer = String(ranInt1 - ranInt2);
+        const pair = cons(question, answer);
+        return (pair);
+      }
+      default: {
+        const question = `${ranInt1} * ${ranInt2}`;
+        const answer = String(ranInt1 * ranInt2);
+        const pair = cons(question, answer);
+        return (pair);
+      }
     }
-  }
-  return true;
+  },
+};
+
+export default () => {
+  core.gameLauncher(gameData);
 };
