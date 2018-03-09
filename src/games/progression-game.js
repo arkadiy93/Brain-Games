@@ -13,7 +13,7 @@ const gameData = {
     for (let i = 0; i < 10; i += 1) {
       initialNum += spacing;
       if (i === randomPoss) {
-        question += ' **';
+        question += ' ..';
         answer = String(initialNum);
       } else {
         question += ` ${initialNum}`;
