@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import * as core from '../index';
 
 const gameData = {
-  introQuestion: () => console.log('Find the greatest common divisor of given numbers.'),
+  introQuestion: () => 'Find the greatest common divisor of given numbers.',
 
   getRoundQuestion: () => {
     const ranInt1 = core.getRandomInt(1, 100);
@@ -13,16 +13,15 @@ const gameData = {
   },
 
   findSolution: (num1, num2) => {
-    const smallNum = num1 < num2 ? num1 : num2;
-    const highNum = num1 < num2 ? num2 : num1;
-    const iter = (div) => {
-      if (highNum % div === 0 && smallNum % div === 0) {
-        return div;
+    const iter = (x, y) => {
+      if (x === 0 || y === 0) {
+        return x + y;
       }
-      return iter(div - 1);
+      const arg1 = x > y ? x % y : x;
+      const arg2 = x > y ? y : y % x;
+      return iter(arg1, arg2);
     };
-
-    return iter(smallNum);
+    return iter(num1, num2);
   },
 };
 

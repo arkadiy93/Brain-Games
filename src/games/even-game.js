@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import * as core from '../index';
 
 const gameData = {
-  introQuestion: () => console.log('Answer "yes" if number even otherwise answer "no".'),
+  introQuestion: () => 'Answer "yes" if number even otherwise answer "no".',
 
   getRoundQuestion: () => {
     const question = core.getRandomInt(1, 100);

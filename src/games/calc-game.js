@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import * as core from '../index';
 
 const gameData = {
-  introQuestion: () => console.log('What is the result of the expression?'),
+  introQuestion: () => 'What is the result of the expression?',
 
   getRoundQuestion: () => {
     const ranOperator = core.getRandomInt(0, 3);
