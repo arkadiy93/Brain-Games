@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import * as core from '../index';
 
 const gameData = {
-  introQuestion: () => 'What number is missing in this progression?',
+  introQuestion: 'What number is missing in this progression?',
 
   getRoundQuestion: () => {
     const spacing = core.getRandomInt(2, 5);

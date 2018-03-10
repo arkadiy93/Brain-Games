@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import * as core from '../index';
 
 const gameData = {
-  introQuestion: () => 'Balance the given number.',
+  introQuestion: 'Balance the given number.',
 
   getRoundQuestion: () => {
     const question = core.getRandomInt(100, 9999);
@@ -27,30 +27,38 @@ const gameData = {
       };
 
       const getMaxMin = () => {
-        for (let i = 0; i < initialNum.length; i += 1) {
-          if (Number(initialNum[i]) < min) {
-            min = initialNum[i];
-            minPos = i;
+        const checkEachNum = (index) => {
+          if (Number(initialNum[index]) < min) {
+            min = initialNum[index];
+            minPos = index;
           }
-          if (Number(initialNum[i]) > max) {
-            max = initialNum[i];
-            maxPos = i;
+          if (Number(initialNum[index]) > max) {
+            max = initialNum[index];
+            maxPos = index;
           }
-        }
+          if (index + 1 < initialNum.length) {
+            checkEachNum(index + 1);
+          }
+        };
+        checkEachNum(0);
       };
 
       const getDiff = () => max - min;
 
       const createBalanced = () => {
-        for (let i = 0; i < initialNum.length; i += 1) {
-          if (i === minPos) {
-            numBalanced += Math.floor(getDiff() / 2) + Number(initialNum[i]);
-          } else if (i === maxPos) {
-            numBalanced += Number(initialNum[i]) - Math.floor(getDiff() / 2);
+        const checkEachNum = (index) => {
+          if (index === minPos) {
+            numBalanced += Math.floor(getDiff() / 2) + Number(initialNum[index]);
+          } else if (index === maxPos) {
+            numBalanced += Number(initialNum[index]) - Math.floor(getDiff() / 2);
           } else {
-            numBalanced += initialNum[i];
+            numBalanced += initialNum[index];
           }
-        }
+          if (index + 1 < initialNum.length) {
+            checkEachNum(index + 1);
+          }
+        };
+        checkEachNum(0);
       };
 
       getMaxMin();

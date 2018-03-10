@@ -13,28 +13,32 @@ const getUsername = () => {
 
 export const gameLauncher = (gameData) => {
   greetUser();
-  printQuestion(gameData.introQuestion());
+  printQuestion(gameData.introQuestion);
   const userName = getUsername();
   const getAnswers = () => {
-    for (let i = 0; i < 3; i += 1) {
+    const playRounds = (round) => {
       const questionData = gameData.getRoundQuestion();
       const question = car(questionData);
       const correctAnswer = cdr(questionData);
       printQuestion(`Question: ${question}`);
       const userAnswer = readlineSync.question('Your answer: ');
-      if (userAnswer === correctAnswer) {
-        console.log('Correct!');
-      } else {
+      if (userAnswer !== correctAnswer) {
         console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\n Let's try again, ${userName}!`);
         return false;
       }
-    }
-    return true;
+      console.log('Correct!');
+      if (round < 3) {
+        return playRounds(round + 1);
+      }
+      return true;
+    };
+    return playRounds(1);
   };
   if (getAnswers()) {
     console.log(`Congratulations, ${userName}!`);
   }
 };
+
 
 export const getRandomInt = (min, max) => {
   const minInt = Math.ceil(min);

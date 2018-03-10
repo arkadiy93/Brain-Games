@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import * as core from '../index';
 
 const gameData = {
-  introQuestion: () => 'Find the greatest common divisor of given numbers.',
+  introQuestion: 'Find the greatest common divisor of given numbers.',
 
   getRoundQuestion: () => {
     const ranInt1 = core.getRandomInt(1, 100);
